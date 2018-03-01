@@ -279,14 +279,14 @@
 <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 </center>
 
-
+<div id="my-ad-slot">
 <script type="text/javascript">
 var inmobi_conf = { 
   siteid : "ca01c5d1c6234eb490f7997b2a5d9b64", slot : "10", test: false,
   onError : function(code) {
     if(code == "nfr") {
       document.getElementById("my-ad-slot").style.display = "none";
-      // do something else. call to other ad network or logic to display in-house ads, etc. 
+      console.log("no inmobi ads"); // do something else. call to other ad network or logic to display in-house ads, etc. 
     }
   }
 };
