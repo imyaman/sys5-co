@@ -339,7 +339,9 @@ new admixer_ad({
 });
 </script>
 
-<script src="//www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+<!-- script src="//www.gstatic.com/firebasejs/3.0.2/firebase.js"></script -->
+<script src="//www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script src="//www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
 <script>
 var myid="";
 
@@ -351,6 +353,8 @@ $(document).ready(function() {
       storageBucket: "blog-c227a.appspot.com",
     };
     firebase.initializeApp(config);
+    var db = firebase.firestore();
+    console.log(db);
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
