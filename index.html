@@ -255,10 +255,10 @@
            <div class="col-md-3 contact-footer">
                <div class="footer-form">
                 <h5>Contact Us</h5>
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="E-Mail">
-                <textarea placeholder="Message" rows="3"></textarea>
-                <button class="submit-bt">Send</button>
+                <input id="nameplaceholder" type="text" placeholder="Name">
+                <input id="emailplaceholder" type="text" placeholder="E-Mail">
+                <textarea id="messageplaceholder" placeholder="Message" rows="3"></textarea>
+                <button id="submitbutton" class="submit-bt">Send</button>
             </div>
         </div>
     </div>
@@ -387,6 +387,19 @@ $(document).ready(function() {
     }); // end of onAuthStateChanged
 });
 
+$("#submitbutton").click(function() {
+    var name = $('#nameplaceholder').val();
+    var email = $('#emailplaceholder').val();
+    var message = $('#messageplaceholder').val();
+
+    var aMessage = { message: message, name: name, email: email };
+    var newMessageKey = firebase.database().ref().child('messages').push().key;
+    var updates = {};
+    updates['/messages/' + newMessageKey] = aMessage;
+    firebase.database().ref().update(updates);
+    alertSuccess();
+});  
+  
 </script>
 <br /> <br /> 
 
