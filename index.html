@@ -331,6 +331,8 @@ var inmobi_conf = {
 </script>
 <center><script type="text/javascript" src="//cf.cdn.inmobi.com/ad/inmobi.js"></script></center>
 
+<br /> <br /> 
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
@@ -409,8 +411,19 @@ function alertSuccess(data){
 
   gtag('config', 'UA-122664301-1', {'userId': myid});
 </script>
-  
-<br /> <br /> 
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>
